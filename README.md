@@ -12,6 +12,6 @@ Hier findest du fertige Aufgaben für BlueJ, die schrittweise ein Billardspiel a
 
 1. **ZIP-Datei herunterladen** und entpacken.  
 2. In **BlueJ** öffnen und ausführen.  
-3. Alternativ den **Quellcode manuell kopieren** und in ein neues BlueJ-Projekt einfügen.  
+3. Alternativ den **Quellcode manuell kopieren** und in das vorherige BlueJ-Projekt einfügen.  
 
 ### Danke ChatGPT 
