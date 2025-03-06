@@ -1,0 +1,48 @@
+import sum.kern.*;
+/**
+ * @Kurfürst Maximilian Köper der Sonnenalm
+ * @Version 10
+ */
+public class Hauptprogramm
+{
+    // Objekte
+    Bildschirm derBildschirm;
+    Kugel dieKugel;
+    Kugel weitereKugel;
+    Maus dieMaus;
+
+    // Konstruktor
+    public Hauptprogramm()
+    {
+        derBildschirm = new Bildschirm();
+        derBildschirm.init();
+        dieKugel = new Kugel(130,200,0.5,330,5);
+        dieKugel.init();
+        dieKugel.merke(derBildschirm);
+        weitereKugel = new Kugel(330,260,1,50,7);
+        weitereKugel.init();
+        weitereKugel.merke(derBildschirm);
+        dieMaus = new Maus();
+        dieMaus.init();
+    }
+
+    // Dienste
+    public void fuehreAus()
+    {
+        hatStift.bewegeBis(100,100);
+        dieKugel.gibFrei();
+        weitereKugel.gibFrei();
+        dieKugel.zeichne();
+        weitereKugel.zeichne();
+        do
+        {
+            hatStift.zeichneRechteck(500,200);
+            dieKugel.beweg();
+            weitereKugel.beweg();
+        } while(!dieMaus.doppelKlick());
+        dieKugel.gibFrei();
+        weitereKugel.gibFrei();
+        dieMaus.gibFrei();
+        derBildschirm.gibFrei();
+    }
+}
