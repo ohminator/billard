@@ -1,0 +1,87 @@
+
+import sum.kern.*;
+
+public class Kugel
+{
+    // Objekte
+    Buntstift hatStift;
+    Bildschirm kenntBildschirm;  
+    int radius;
+    double geschwindigkeit;
+    int richtung;
+    int hPosition, vPosition;
+    // Konstruktor
+    public Kugel(int pAnfangH, int pAnfangV, double pGeschwindigkeit, int pRichtung, double pWinkel, int farbe)
+    {
+        hatStift = new Buntstift();
+        hatStift.bewegeBis(pAnfangH, pAnfangV);
+        hatStift.dreheBis(pWinkel);
+        hatStift.setzeFuellMuster(1);
+        hatStift.setzeFarbe(farbe);
+        this.radius = 5;
+        this.geschwindigkeit = pGeschwindigkeit;
+        this.richtung = pRichtung;
+        this.hPosition = pAnfangH;
+    }
+
+    // Dienste
+    public void gibFrei()
+    {
+        hatStift.gibFrei();
+    }
+    
+    public void zeichne()
+    {
+        hatStift.zeichneKreis(radius);
+    }
+    
+    public void loesche()
+    {
+        hatStift.radiere();
+        hatStift.zeichneKreis(radius);
+        hatStift.normal();
+    }
+    
+    public void setzeRichtung(int pWinkel)
+    {
+        hatStift.dreheUm(pWinkel);
+    }
+    
+    public double richtung()
+    {
+        return hatStift.winkel();
+    }
+    
+    public double hPosition()
+    {
+        return hatStift.hPosition();
+    }
+    
+    public double vPosition()
+    {
+        return hatStift.vPosition();
+    }
+    
+    public void beweg()
+    {
+        this.loesche();
+        hatStift.bewegeUm(geschwindigkeit);
+        this.zeichne();
+        if (hPosition > kenntBildschirm.breite())
+        {   richtung = 180 - richtung;    
+        }
+        if (hPosition < 0) 
+        {   richtung = 180 - richtung;
+        }
+        if (vPosition > kenntBildschirm.hoehe())
+        {   richtung = 360 - richtung;    
+        }
+        if (vPosition < 0) 
+        {   richtung = 360 - richtung;
+        }
+    }
+    public void merke(Bildschirm pBildschirm)
+    {
+        kenntBildschirm = pBildschirm;
+    }
+}
