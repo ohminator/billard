@@ -1,0 +1,64 @@
+import sum.kern.*;
+
+public class Billard10
+{
+    Bildschirm derBildschirm;
+    Maus dieMaus;
+    Kugel meineKugel;
+    Kugel  meineKugel2;
+    Reibungskugel meineReibungskugel;
+    Ringkugel meineRingkugel;
+    Streifenkugel meineStreifenkugel;
+    Streifenkugel meineStreifenkugel2;
+        
+    public Billard10()
+    {
+        
+        // Initialisierung
+        derBildschirm = new Bildschirm(600,600);
+        dieMaus = new Maus();
+        meineKugel = new Kugel(20, 50, 0.25, 75); //schnelle Kugel
+        meineKugel.merke(derBildschirm);
+        meineKugel2 = new Kugel(220, 250, 0.05, 167); //langsame Kugel
+        meineKugel2.merke(derBildschirm);
+        meineReibungskugel = new Reibungskugel(80, 60, 0.25, 50);
+        meineReibungskugel.merke(derBildschirm);
+        meineRingkugel = new Ringkugel(100, 40, 0.25, 45, 7);
+        meineRingkugel.merke(derBildschirm);
+        meineStreifenkugel = new Streifenkugel(220, 280, 0.25, 60, 12, 45);
+        meineStreifenkugel.merke(derBildschirm);
+        meineStreifenkugel2 = new Streifenkugel(200, 180, 0.35, 48, 10, 70);
+        meineStreifenkugel2.merke(derBildschirm);
+    }
+    public void fuehreAus()
+    {
+
+       
+        meineKugel.zeichne();
+        meineKugel2.zeichne();
+        meineReibungskugel.zeichne();
+        meineRingkugel.zeichne();
+        meineStreifenkugel.zeichne();
+        meineStreifenkugel2.zeichne();
+        do
+        {
+            meineKugel.bewege();
+            meineKugel2.bewege();
+            meineReibungskugel.bewege();
+            meineRingkugel.bewege();
+            meineStreifenkugel.bewege();
+            meineStreifenkugel2.bewege();
+        } while (!dieMaus.istGedrueckt());
+        
+        // Aufraeumen
+       
+        meineKugel.gibFrei();
+        meineKugel2.gibFrei();
+        meineReibungskugel.gibFrei();
+        meineRingkugel.gibFrei();
+        meineStreifenkugel.gibFrei();
+        meineStreifenkugel2.gibFrei();
+        dieMaus.gibFrei();
+        derBildschirm.gibFrei();
+    }
+}
