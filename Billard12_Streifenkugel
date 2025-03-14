@@ -1,0 +1,36 @@
+/**
+ * Beschreiben Sie hier die Klasse Ringkugel.
+ * 
+ * @author Easton Heringer
+ * @version 07.03.2025
+ */
+public class Streifenkugel extends Kugel
+{
+    double winkel;
+    int zRadius;
+    double zWinkel;
+    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
+
+    /**
+     * Konstruktor für Objekte der Klasse Ringkugel
+     */
+    public Streifenkugel(double pAnfangH, double pAnfangV, double pGeschwindigkeit, int pRichtung, int pRadius, double pWinkel)
+    {
+        super(pAnfangH, pAnfangV, pGeschwindigkeit, pRichtung);
+        zRadius = pRadius;
+        zWinkel = pWinkel;
+    }
+
+    public void zeichne()
+    {
+        hatStift.zeichneKreis(zRadius);
+        winkel = super.richtung();
+        hatStift.dreheBis(zWinkel);
+        hatStift.runter();
+        hatStift.bewegeUm(zRadius);
+        hatStift.bewegeUm(zRadius*-2);
+        hatStift.bewegeUm(zRadius);
+        hatStift.dreheBis(winkel);
+        hatStift.hoch();
+    }
+}
