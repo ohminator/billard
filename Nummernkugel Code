@@ -1,0 +1,25 @@
+
+import sum.kern.*;
+/**
+ * @Maximilian Köper
+ * @Version 28.03.2025
+ */
+public class Nummernkugel extends Kugel
+{   
+    Buntstift hatNummernstift;
+    int zNummer, zNummernbreite;
+    double zRadius;
+    
+    public Nummernkugel(double pAnfangH, double pAnfangV, double pGeschwindigkeit, int pRichtung, int pNummer, double pRadius)
+    {
+        super(pAnfangH, pAnfangV, pGeschwindigkeit, pRichtung);
+        zNummer = pNummer;
+        zRadius = pRadius;
+    }
+    
+    public void zeichne()
+    {
+        hatStift.zeichneKreis(zRadius);
+        hatNummernstift.
+        hatStift.schreibeZahl(zNummer);
+    }
