@@ -1,0 +1,41 @@
+/**
+ * Beschreiben Sie hier die Klasse Zahlenkugel.
+ * 
+ * @author Easton Heringer
+ * @version 07.03.2025
+ */
+public class Drallkugel extends Kugel
+{
+    int zRadius;
+    int zZahl;
+    double xPosition;
+    double yPosition;
+    double winkel;
+    double zDrall;
+    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
+
+    /**
+     * Konstruktor für Objekte der Klasse Reibungskugel
+     */
+    public Drallkugel(double pAnfangH, double pAnfangV, double pGeschwindigkeit, int pRichtung, double pDrall)
+    {
+        super(pAnfangH, pAnfangV, pGeschwindigkeit, pRichtung);
+        zDrall = pDrall;
+    }
+
+    public void bewege()
+    {
+        this.loesche();
+        hatStift.bewegeUm(zGeschwindigkeit);
+        hatStift.dreheUm(zDrall);
+        this.zeichne();
+        if (this.hPosition() > kenntBildschirm.breite()) // am rechten Rand
+            this.setzeRichtung((180 - this.richtung()));
+        if (this.hPosition() < 0) // am linken Rand
+                this.setzeRichtung(180 - this.richtung());
+        if (this.vPosition() > kenntBildschirm.hoehe()) // am unteren Rand
+                this.setzeRichtung(360 - this.richtung());
+        if (this.vPosition() < 0) // am oberen Rand
+                this.setzeRichtung(360 - this.richtung());    
+    }
+}
