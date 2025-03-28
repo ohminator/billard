@@ -1,0 +1,33 @@
+/**
+ * Beschreiben Sie hier die Klasse Spurkugel.
+ * 
+ * @author Jannis Cvijanovic
+ * @version 28.03.2025
+ */
+public class Spurkugel extends Kugel
+{
+    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
+
+    /**
+     * Konstruktor für Objekte der Klasse Spurkugel
+     */
+    public Spurkugel(double pAnfangH, double pAnfangV, double pGeschwindigkeit, int pRichtung)
+    {
+        super(pAnfangH, pAnfangV, pGeschwindigkeit, pRichtung);
+    }
+
+
+    public void zeichne()
+    {
+        super.zeichne();
+    }
+    
+    public void loesche()
+    {
+        hatStift.radiere();
+        this.zeichne();
+        hatStift.normal();
+        hatStift.runter();
+        hatStift.bewegeUm(-zRadius);
+    }
+}
